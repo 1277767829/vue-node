@@ -2,7 +2,9 @@
   <div id="app">
     <Header></Header>
     <Loading v-show="$store.state.loading"></Loading>
-    <router-view v-show="!$store.state.loading"></router-view>
+    <keep-alive>
+      <router-view v-show="!$store.state.loading"></router-view>
+    </keep-alive>
     <Footer></Footer>
   </div>
 </template>

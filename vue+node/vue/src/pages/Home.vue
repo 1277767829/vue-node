@@ -200,7 +200,7 @@ export default {
     components:{
         sliderBreath
     },
-    mounted(){
+    activated(){
         this.$store.dispatch(types.UPDATE_BANNER);
     }
 }
@@ -226,7 +226,7 @@ nav .biao{float:left;display:block;width:100px;text-align: center;color:#fff;fon
 nav .biao:hover{background-color:#6c0709;}
 nav .biao.te{width:190px;height:39px;background-position:0 -16px;}
 nav .biao.te:hover{background-position:0 -76px;}
-nav dl{position: absolute;top:39px;left:74px;height:470px;background:rgba(255,255,255,.9);z-index:20;}
+nav dl{position: absolute;top:39px;left:74px;height:470px;background:rgba(255,255,255,.9);z-index:20;width:190px;}
 nav dl dt{width:190px;position: relative;line-height: 24px;height: 24px;font-size: 12px;color: #666;padding: 6px 5px 6px 15px;cursor: pointer;}
 nav dl dt:hover i{transform:rotate(360deg)}
 nav dl dt i{display: inline-block;width: 16px;height: 16px;background-position:-64px 0;margin-right: 10px;vertical-align: middle;transition: .8s ease;}

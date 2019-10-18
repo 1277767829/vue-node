@@ -1,18 +1,18 @@
 module.exports = {
   
-  /* css: {
+  // css: {
     
-    extract:false,
+  //   extract:false,
 
-    loaderOptions: {
-      sass: {
-        data: `
-          @import "@/assets/scss1/base.scss";
-        `
-      }
-    }
+  //   loaderOptions: {
+  //     sass: {
+  //       data: `
+  //         @import "@/assets/scss1/base.scss";
+  //       `
+  //     }
+  //   }
 
-  }, */
+  // }, 
 
   // whether to use eslint-loader
   lintOnSave: true,

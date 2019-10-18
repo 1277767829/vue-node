@@ -192,7 +192,7 @@ export default {
             }
         }
     },
-    created(){
+    activated(){
         this.random();
     },
     beforeRouteEnter(to,from,next){

@@ -11,7 +11,7 @@
                     <a href="">您好，欢迎来到邮乐网！</a>
                     <router-link class="te" v-if="$store.state.user.err" to="/Login" >登录</router-link>
                     <router-link class="te" v-if="$store.state.user.err" to="/Reg" >注册</router-link>
-                    <a v-if="!$store.state.user.err" href="javescript:;"><img class="cur" :src="$store.state.user.data.icon" alt=""></a>
+                    <a v-if="!$store.state.user.err" href="javescript:;"><img class="cur" :src="server.baseUrl+$store.state.user.data.icon" alt=""></a>
                     <a class="te" v-if="!$store.state.user.err" href="javescript:;">{{$store.state.user.data.username|user}}</a>
                     <a class="te" v-if="!$store.state.user.err" @click="out" href="javescript:;">退出</a>
                     <span>|</span>
@@ -23,7 +23,7 @@
                     <img src="../assets/img/all.png" alt="">
                     <a href="">全部商品分类<img src="../assets/img/xiajian.png" alt=""></a>
                     <span>|</span>
-                    <a href="">网站地图</a>
+                    <a class="te"  @click.self="replace">网站地图<Map v-if="map"></Map></a>
                     <span>|</span>
                     <a href="">帮助中心<img src="../assets/img/xiajian.png" alt=""></a>
                     <span>|</span>
@@ -35,8 +35,20 @@
     </header>
 </template>
 <script>
+import Map from './map';
 export default {
+    data(){
+        return {
+            map:false
+        }
+    },
+    components:{
+        Map
+    },
     methods:{
+        replace(){
+            this.map=!this.map;
+        },
         out(){
             this.$store.dispatch("UPDATE_LOGINOUT").then(res=>{
                 // console.log(res+5)
@@ -67,7 +79,7 @@ header{position: relative;}
 .head-t .head-t-r{float:right;}
 .head-t .head-t-r a{display:inline-block;font:12px/22px "微软雅黑";color:#666;}
 .head-t .head-t-r a img.cur{width:20px;height:20px;border-radius: 50%;}
-.head-t .head-t-r a.te{color:#06c;margin:0 3px;}
+.head-t .head-t-r a.te{color:#06c;margin:0 3px;position:relative;cursor: pointer;}
 .head-t .head-t-r span{margin:0 5px;color:#666;}
 .head-t .head-t-r i{display:inline-block;color:#cc4545;font:14px/22px "微软雅黑";}
 </style>

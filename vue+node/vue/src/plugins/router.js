@@ -3,12 +3,18 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import Home from '../pages/Home.vue'
-import Column from '../pages/Column.vue'
-import Car from '../pages/car.vue'
-import Login from '../pages/Login.vue'
-import Reg from '../pages/Reg.vue'
-import Detail from '../pages/Detail.vue'
-import Error from '../pages/Error.vue'
+const Column = ()=>import('../pages/Column.vue')
+const Car = ()=>import('../pages/car.vue')
+const Login = ()=>import('../pages/Login.vue')
+const Reg = ()=>import('../pages/Reg.vue')
+const Detail = ()=>import('../pages/Detail.vue')
+const Error = ()=>import('../pages/Error.vue')
+// import Column from '../pages/Column.vue'
+// import Car from '../pages/car.vue'
+// import Login from '../pages/Login.vue'
+// import Reg from '../pages/Reg.vue'
+// import Detail from '../pages/Detail.vue'
+// import Error from '../pages/Error.vue'
 
 
 let routes=[

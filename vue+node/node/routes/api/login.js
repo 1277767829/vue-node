@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 var mgdb = require('../../utils/mgdb')
 var bcrypt = require('bcrypt')
-// let cookieSession = require('cookie-session')
-// var app2 = express();
 
 router.post('/', function (req, res, next) {
   // res.setHeader('Access-Control-Allow-Credentials', true);
@@ -13,19 +11,6 @@ router.post('/', function (req, res, next) {
     res.send({ err: 1, msg: '用户名和密码为必传参数' })
     return;
   }
-  // if(save){
-  //   app2.use(cookieSession({
-  //     name:'ule',
-  //     keys:['aa','bb','cc'],
-  //     maxAge:1000*60*60*24*30
-  //   }))
-  // }else{
-  //   app2.use(cookieSession({
-  //     name:'ule',
-  //     keys:['aa','bb','cc']
-  //     // maxAge:1000*60*60*24*30
-  //   }))
-  // }
   //兜库
   mgdb({
     collectionName: 'user',
@@ -43,9 +28,9 @@ router.post('/', function (req, res, next) {
               let pass = bcrypt.compareSync(password, result[0].password);
               if (pass) {
                   //种cookie
-                  if(save){
+                  
                   req.session['1907_session'] = result[0]._id
-                  }
+                  
                 // delete result[0].username
                 delete result[0].password
                 res.send({ err: 0, msg: '登陆成功', data: result[0] })

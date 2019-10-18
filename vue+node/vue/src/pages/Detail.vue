@@ -51,7 +51,7 @@
                 <div id="right" class="right">
                     <h3>{{$store.state.detail.tip}}</h3>
                     <p><span>特卖价</span><i>￥{{$store.state.detail.price1}}</i><b>{{$store.state.detail.price2}}.00</b></p>
-                    <div class="num"><span>数量</span><input v-model="num" type="number" value="1"></div>
+                    <div class="num"><span>数量</span><input v-model="num" type="number" min="1"></div>
                     <div class="add"><router-link to="/column">继续选购</router-link><i @click="add">加入购物车</i></div>
                 </div>
             </div>
@@ -60,13 +60,14 @@
   </div>
 </template>
 <script>
-import * as types from '../store/type'
+import * as types from '../store/type';
 export default {
+
   props:["id"],
   data(){
     return {
       src:"",
-      num:1
+      num:1,
     }
   },
   methods:{
@@ -82,7 +83,8 @@ export default {
       }
     }
   },
-  mounted(){
+  activated(){
+    this.num=1;
     this.$store.dispatch(types.UPDATE_DETAIL,this.id).then(res=>this.src=res.url[0]);
     // 这里不能直接获取到state中的detail的数据，因为数据的异步加载
     // console.log(this.$store.state.detail,this.$store.state,1)

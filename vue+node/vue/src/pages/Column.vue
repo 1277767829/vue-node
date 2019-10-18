@@ -58,7 +58,7 @@
 <script>
 import * as types from '../store/type'
 export default {
-    mounted(){
+    activated(){
         this.$store.dispatch(types.UPDATE_COLUMN)
     }
 }

@@ -21,6 +21,8 @@ if(local){
   store.commit('CHECK_USER',JSON.parse(local))
 }
 
+
+
 new Vue({
   render: h => h(App),
   router,

@@ -60,7 +60,6 @@ function findDetail({_id,goods,num,req,res,next}){
       {
         $set:{goods,num}
       },(err, result) => {
-        console.log(result)
           if (err) {
             res.send({ err: 1, msg: 'user集合操作错误' })
           } else {

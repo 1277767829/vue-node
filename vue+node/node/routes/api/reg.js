@@ -35,9 +35,9 @@ router.post('/', function(req, res, next) {
       req.files[0].path,
       req.files[0].path + pathLib.parse(req.files[0].originalname).ext
     )
-    icon = 'http://localhost:3000/upload/user/' + req.files[0].filename + pathLib.parse(req.files[0].originalname).ext
+    icon = '/upload/user/' + req.files[0].filename + pathLib.parse(req.files[0].originalname).ext
   }else{
-    icon = 'http://localhost:3000/upload/noimage.png';
+    icon = '/upload/noimage.png';
   }
 
   //写库->mgdb->find 用户名 -> 存库前密码加密-》返回结果
