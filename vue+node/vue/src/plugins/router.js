@@ -28,5 +28,11 @@ let routes=[
   {path:'*',component:Error},
 
 ];
+let scrollBehavior=(to,from,savedPosition)=>{
+  return { x: 0, y: 0 }//对于所有路由导航，简单地让页面滚动到顶部
+}
 
-export default new VueRouter({routes})
+export default new VueRouter({
+  routes,
+  // scrollBehavior
+})

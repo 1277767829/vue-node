@@ -15,6 +15,15 @@ import store from './plugins/store'
 
 import './filters'
 
+import Magnify from './plugins/magnify'
+Vue.use(Magnify)
+
+import VueLazyLoad from 'vue-lazyload'
+Vue.use(VueLazyLoad,{
+    error:require('./assets/img/error.jpg'),
+    loading:require('./assets/img/loading.gif')
+})
+
 let local = window.localStorage.getItem('user');
 
 if(local){
@@ -22,9 +31,8 @@ if(local){
 }
 
 
-
 new Vue({
   render: h => h(App),
   router,
-  store,
+  store
 }).$mount('#app')

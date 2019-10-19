@@ -42,7 +42,7 @@
         </div>
         <ul id="good" class="margin">
             <router-link v-for="value in $store.state.goods" :key="value.goodsid" :to="'/Detail/'+value.goodsid" tag="li">
-                    <img :src="server.baseUrl+value.url" alt="">
+                    <img v-lazy="server.baseUrl+value.url" alt="">
                     <p>{{value.tip}}</p>
                     <div class="bottom">
                         <i>￥</i>

@@ -40,9 +40,13 @@
             <div class="details">
                 <div class="left">
                     <div id="smallimg" class="smallimg">
-                        <img :src="server.baseUrl+src" alt="">
+                        <Magnify :smallUrl="server.baseUrl+src"
+                        :smallWidth="smallwidth" :smallHeight="smallwidth" :bigUrl="server.baseUrl+src" :moveOpacity="moveOpacity"
+                        :scale="scale"
+                        ></Magnify>
+                        <!-- <img :src="server.baseUrl+src" alt="">
                         <div id="move" class="move"></div>
-                        <div id="bigimg" class="bigimg"></div>
+                        <div id="bigimg" class="bigimg"></div> -->
                     </div>
                     <ul id="wrap">
                         <li @click="replace(value)" v-for="(value,index) in $store.state.detail.url" :key="index"><img :src="server.baseUrl+value" alt=""></li>
@@ -68,6 +72,10 @@ export default {
     return {
       src:"",
       num:1,
+      smallwidth:400,
+      smallheight:400,
+      moveOpacity:0.6,
+      scale:3
     }
   },
   methods:{
@@ -75,7 +83,6 @@ export default {
       this.src=src;
     },
     add(){
-      
       if(this.$store.state.user.err){
         this.$router.push('/login')
       }else{
@@ -125,7 +132,7 @@ header .head-b .car i{color:#c7181d;font:16px/34px "微软雅黑";display: inlin
 main {margin-top:50px;}
 main .details{border:3px solid #ed7d9e;padding:10px 50px 10px 10px;height:580px;}
 main .details .left{float: left;}
-main .details .left .smallimg{width:400px;height:400px;position: relative;background-size:400px 400px;}
+main .details .left .smallimg{width:400px;height:400px;background-size:400px 400px;position:relative}
 main .details .left .smallimg img{width:400px;height:400px}
 main .details .left .smallimg .move{width:100px;height:100px;background:rgba(0,0,0,.4);position: absolute;left:0;top:0;display:none;}
 main .details .left .smallimg .bigimg{width:200px;height:200px;position: absolute;left:400px;top:80px;background-size:800px 800px;display:none;}
